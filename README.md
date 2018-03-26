@@ -10,42 +10,42 @@ $ composer require se468/laravel-package-generators-extended
 ## Usage
 **Command**
 ```
-package:command {vendor} {package} {namespace} --path
+package:command {vendor} {package} {namespace} {name} --path
 ```
 
 Example:
 ```
-package:command se468 LaravelPackageGeneratorsExtended LaravelPackageGeneratorsExtended TestCommand
+package:command se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestCommand
 ```
 
 **Controller**
 ```
-package:controller {vendor} {package} {namespace} --path
+package:controller {vendor} {package} {namespace} {name} --path
 ```
 
 Example:
 ```
-package:controller se468 LaravelPackageGeneratorsExtended LaravelPackageGeneratorsExtended TestController
+package:controller se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestController
 ```
 
 **Migration**
 ```
-package:migration {vendor} {package} {namespace} --path
+package:migration {vendor} {package} {namespace} {name} --path
 ```
 
 Example:
 ```
-package:migration se468 LaravelPackageGeneratorsExtended LaravelPackageGeneratorsExtended TestMigration
+package:migration se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestMigration
 ```
 
 **Model**
 ```
-package:model {vendor} {package} {namespace} --path
+package:model {vendor} {package} {namespace} {name} --path
 ```
 
 Example:
 ```
-package:migration se468 LaravelPackageGeneratorsExtended LaravelPackageGeneratorsExtended TestModel
+package:migration se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestModel
 ```
 
 ## License
