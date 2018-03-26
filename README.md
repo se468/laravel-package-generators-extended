@@ -33,7 +33,7 @@ package:controller {name_of_file} {vendor?} {package?} {namespace?}  --path
 
 Example:
 ```
-$ php artisan package:controller se468 TestController test-package TestNamespace
+$ php artisan package:controller TestController se468 test-package TestNamespace
 ```
 
 **Migration**
@@ -53,7 +53,7 @@ package:model {vendor} {package} {namespace} {name} --path
 
 Example:
 ```
-$ php artisan package:migration TestModel se468 test-package TestNamespace 
+$ php artisan package:model TestModel se468 test-package TestNamespace 
 ```
 
 
