@@ -2,9 +2,8 @@
 
 namespace se468\LaravelPackageGeneratorsExtended\Commands;
 
-use se468\LaravelPackageGeneratorsExtended\Commands\PackageGeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
-
+use se468\LaravelPackageGeneratorsExtended\Commands\PackageGeneratorCommand;
 
 class MakePackage extends PackageGeneratorCommand
 {
@@ -27,22 +26,23 @@ class MakePackage extends PackageGeneratorCommand
     protected function makeCommand()
     {
         $path = $this->getPath($this->argument('namespace'));
-        
+
         $this->beforeGeneration($path);
-
         $this->makeDirectory($path);
-
         $this->files->put($path, $this->compileStub());
-
+        $this->files->put($this->getPackagePath().'/composer.json', $this->compileComposerStub());
         $this->afterGeneration($path);
     }
 
     protected function getPath($name)
     {
-        return $this->getPackagePath().'/' . $name . 'ServiceProvider.php';
+        return $this->getPackagePath() . '/' . $name . 'ServiceProvider.php';
     }
 
-    protected function compileStub () {
+    
+
+    protected function compileStub()
+    {
         $stub = $this->files->get(__DIR__ . '/../stubs/ServiceProvider.stub');
 
         $this->replaceNamespace($stub);
@@ -50,8 +50,18 @@ class MakePackage extends PackageGeneratorCommand
         return $stub;
     }
 
-    protected function replaceClassName(&$stub) {
-        $stub = str_replace('{{class}}', $this->argument('name'), $stub);
+    protected function compileComposerStub()
+    {
+        $stub = $this->files->get(__DIR__ . '/../stubs/composer.stub');
+        $this->replaceNamespace($stub)
+            ->replacePackageName($stub);
+
+        return $stub;
+    }
+
+    protected function replacePackageName(&$stub)
+    {
+        $stub = str_replace('{{package}}', $this->argument('package'), $stub);
 
         return $this;
     }

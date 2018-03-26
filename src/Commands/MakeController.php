@@ -8,10 +8,10 @@ use Illuminate\Filesystem\Filesystem;
 
 class MakeController extends PackageGeneratorCommand
 {
-    protected $signature = 'package:controller {vendor} {package} {namespace} {name : The name of the controller}
+    protected $signature = 'package:controller {name : The name of the controller} {vendor?} {package?} {namespace?}
         {--path= : The location where the controller file should be created relative to package src folder.}';
 
-    protected $description = 'Create a new controller file for your package. package:controller {vendor} {package} {namespace} {name_of_file} --path';
+    protected $description = 'Create a new controller file for your package. package:controller {name_of_file} {vendor?} {package?} {namespace?}  --path';
 
     public function __construct(Filesystem $files)
     {
@@ -43,7 +43,7 @@ class MakeController extends PackageGeneratorCommand
         if (! is_null($targetPath = $this->input->getOption('path'))) {
             return $this->getPackagePath().'/Http/Controller/'. $targetPath.'/' . $name . '.php';
         }
-        
+
         return $this->getPackagePath().'/Http/Controller/' . $name . '.php';
     }
 

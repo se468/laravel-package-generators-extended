@@ -8,10 +8,10 @@ use Illuminate\Filesystem\Filesystem;
 
 class MakeMigration extends PackageGeneratorCommand
 {
-    protected $signature = 'package:migration {vendor} {package} {namespace} {name : The name of the migration}
+    protected $signature = 'package:migration {name : The name of the migration} {vendor?} {package?} {namespace?} 
         {--path= : The location where the migration file should be created relative to package src folder.}';
 
-    protected $description = 'Create a new migration file for your package. package:migration {vendor} {package} {namespace} {name_of_file} --path';
+    protected $description = 'Create a new migration file for your package. package:migration {name_of_file} {vendor?} {package?} {namespace?} --path';
 
     public function __construct(Filesystem $files)
     {
@@ -43,7 +43,7 @@ class MakeMigration extends PackageGeneratorCommand
         if (! is_null($targetPath = $this->input->getOption('path'))) {
             return $this->getPackagePath().'/database/migrations/'. $targetPath.'/' . $name . '.php';
         }
-        
+
         return $this->getPackagePath() . '/database/migrations/' . date('Y_m_d_His') . '_' . $name . '.php';
     }
 

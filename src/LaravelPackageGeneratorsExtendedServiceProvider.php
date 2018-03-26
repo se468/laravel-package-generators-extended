@@ -21,6 +21,9 @@ class LaravelPackageGeneratorsExtendedServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        $this->publishes([
+            __DIR__.'/config/package-generators.php' => config_path('package-generators.php'),
+        ]);
     }
 
     /**

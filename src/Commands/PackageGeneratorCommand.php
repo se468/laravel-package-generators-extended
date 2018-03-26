@@ -25,7 +25,11 @@ abstract class PackageGeneratorCommand extends Command
 
     protected function getPackagePath()
     {
-        return base_path() . '/packages/'.$this->argument('vendor').'/'.$this->argument('package').'/src';
+        $vendor = $this->argument('vendor') ? $this->argument('vendor') : config('package-generators.vendor');
+
+        $package = $this->argument('package') ? $this->argument('package') : config('package-generators.package');
+
+        return base_path() . '/packages/'. $vendor .'/'. $package .'/src';
     }
 
     protected function makeDirectory ($path) {
@@ -49,8 +53,12 @@ abstract class PackageGeneratorCommand extends Command
     }
 
     protected function replaceNamespace (&$stub) {
-        $stub = str_replace('{{vendor}}', $this->argument('vendor'), $stub);
-        $stub = str_replace('{{namespace}}', $this->argument('namespace'), $stub);
+        $vendor = $this->argument('vendor') ? $this->argument('vendor') : config('package-generators.vendor');
+
+        $namespace = $this->argument('namespace') ? $this->argument('namespace') : config('package-generators.namespace');
+
+        $stub = str_replace('{{vendor}}', $vendor, $stub);
+        $stub = str_replace('{{namespace}}', $namespace, $stub);
 
         return $this;
     }

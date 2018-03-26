@@ -8,10 +8,10 @@ use Illuminate\Filesystem\Filesystem;
 
 class MakeCommand extends PackageGeneratorCommand
 {
-    protected $signature = 'package:command {vendor} {package} {namespace} {name : The name of the command}
+    protected $signature = 'package:command {name : The name of the command} {vendor?} {package?} {namespace?}
         {--path= : The location where the command file should be created relative to package src folder.}';
 
-    protected $description = 'Create a new command file for your package. package:command {vendor} {package} {namespace} {name_of_file} --path';
+    protected $description = 'Create a new command file for your package. package:command {name_of_file} {vendor?} {package?} {namespace?} --path';
 
     public function __construct(Filesystem $files)
     {

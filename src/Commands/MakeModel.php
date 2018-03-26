@@ -8,10 +8,10 @@ use Illuminate\Filesystem\Filesystem;
 
 class MakeModel extends PackageGeneratorCommand
 {
-    protected $signature = 'package:model {vendor} {package} {namespace} {name : The name of the model}
+    protected $signature = 'package:model {name : The name of the model} {vendor?} {package?} {namespace?} 
         {--path= : The location where the model file should be created relative to package src folder.}';
 
-    protected $description = 'Create a new model file for your package. package:model {vendor} {package} {namespace} {name_of_file} --path';
+    protected $description = 'Create a new model file for your package. package:model {name_of_file} {vendor?} {package?} {namespace?} --path';
 
     public function __construct(Filesystem $files)
     {
@@ -43,7 +43,7 @@ class MakeModel extends PackageGeneratorCommand
         if (! is_null($targetPath = $this->input->getOption('path'))) {
             return $this->getPackagePath().'/Http/'. $targetPath.'/' . $name . '.php';
         }
-        
+
         return $this->getPackagePath().'/Http/' . $name . '.php';
     }
 
