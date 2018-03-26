@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 class LaravelPackageGeneratorsExtendedServiceProvider extends ServiceProvider
 {
     protected $commands = [
+        'se468\LaravelPackageGeneratorsExtended\Commands\MakePackage',
         'se468\LaravelPackageGeneratorsExtended\Commands\MakeCommand',
         'se468\LaravelPackageGeneratorsExtended\Commands\MakeController',
         'se468\LaravelPackageGeneratorsExtended\Commands\MakeModel',

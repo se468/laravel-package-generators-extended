@@ -6,12 +6,11 @@ use se468\LaravelPackageGeneratorsExtended\Commands\PackageGeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
 
 
-class MakeModel extends PackageGeneratorCommand
+class MakePackage extends PackageGeneratorCommand
 {
-    protected $signature = 'package:model {vendor} {package} {namespace} {name : The name of the model}
-        {--path= : The location where the model file should be created relative to package src folder.}';
+    protected $signature = 'package:create {vendor} {package} {namespace}';
 
-    protected $description = 'Create a new model file for your package. package:model {vendor} {package} {namespace} {name_of_file} --path';
+    protected $description = 'Create a new package service provider. package:command {vendor} {package} {namespace}';
 
     public function __construct(Filesystem $files)
     {
@@ -27,7 +26,7 @@ class MakeModel extends PackageGeneratorCommand
 
     protected function makeCommand()
     {
-        $path = $this->getPath($this->argument('name'));
+        $path = $this->getPath($this->argument('namespace'));
         
         $this->beforeGeneration($path);
 
@@ -40,18 +39,13 @@ class MakeModel extends PackageGeneratorCommand
 
     protected function getPath($name)
     {
-        if (! is_null($targetPath = $this->input->getOption('path'))) {
-            return $this->getPackagePath().'/Http/'. $targetPath.'/' . $name . '.php';
-        }
-        
-        return $this->getPackagePath().'/Http/' . $name . '.php';
+        return $this->getPackagePath().'/' . $name . 'ServiceProvider.php';
     }
 
     protected function compileStub () {
-        $stub = $this->files->get(__DIR__ . '/../stubs/Model.stub');
+        $stub = $this->files->get(__DIR__ . '/../stubs/ServiceProvider.stub');
 
-        $this->replaceNamespace($stub)
-            ->replaceClassName($stub);
+        $this->replaceNamespace($stub);
 
         return $stub;
     }

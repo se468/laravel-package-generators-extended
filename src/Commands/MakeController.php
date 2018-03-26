@@ -11,7 +11,7 @@ class MakeController extends PackageGeneratorCommand
     protected $signature = 'package:controller {vendor} {package} {namespace} {name : The name of the controller}
         {--path= : The location where the controller file should be created relative to package src folder.}';
 
-    protected $description = 'Create a new controller file for your package. package:controller {vendor} {package} {namespace} --path';
+    protected $description = 'Create a new controller file for your package. package:controller {vendor} {package} {namespace} {name_of_file} --path';
 
     public function __construct(Filesystem $files)
     {
@@ -40,6 +40,10 @@ class MakeController extends PackageGeneratorCommand
 
     protected function getPath($name)
     {
+        if (! is_null($targetPath = $this->input->getOption('path'))) {
+            return $this->getPackagePath().'/Http/Controller/'. $targetPath.'/' . $name . '.php';
+        }
+        
         return $this->getPackagePath().'/Http/Controller/' . $name . '.php';
     }
 

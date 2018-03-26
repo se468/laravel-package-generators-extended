@@ -8,6 +8,11 @@ $ composer require se468/laravel-package-generators-extended
 ```
 
 ## Usage
+**Package**
+```
+package:create {vendor} {package} {namespace} {name}
+```
+
 **Command**
 ```
 package:command {vendor} {package} {namespace} {name} --path
@@ -15,7 +20,7 @@ package:command {vendor} {package} {namespace} {name} --path
 
 Example:
 ```
-package:command se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestCommand
+$ php artisan package:command se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestCommand
 ```
 
 **Controller**
@@ -25,7 +30,7 @@ package:controller {vendor} {package} {namespace} {name} --path
 
 Example:
 ```
-package:controller se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestController
+$ php artisan package:controller se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestController
 ```
 
 **Migration**
@@ -35,7 +40,7 @@ package:migration {vendor} {package} {namespace} {name} --path
 
 Example:
 ```
-package:migration se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestMigration
+$ php artisan package:migration se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestMigration
 ```
 
 **Model**
@@ -45,7 +50,7 @@ package:model {vendor} {package} {namespace} {name} --path
 
 Example:
 ```
-package:migration se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestModel
+$ php artisan package:migration se468 laravel-package-generators-extended LaravelPackageGeneratorsExtended TestModel
 ```
 
 ## License
