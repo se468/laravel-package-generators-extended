@@ -1,12 +1,12 @@
 {
-    "name": "se468/LaravelPackageGeneratorsExtended",
+    "name": "se468/laravel-package-generators-extended",
     "type": "library",
     "description": "Create migrations, models, controllers for custom packages using artisan commands.",
     "keywords": [
         "se468",
         "LaravelPackageGeneratorsExtended"
     ],
-    "homepage": "https://github.com/se468/LaravelPackageGeneratorsExtended",
+    "homepage": "https://github.com/se468/laravel-package-generators-extended",
     "license": "MIT",
     "authors": [
         {
