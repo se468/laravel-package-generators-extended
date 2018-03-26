@@ -1,0 +1,9 @@
+<?php
+namespace {{vendor}}\{{namespace}}\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class {{class}} extends Controller
+{
+    //
+}

@@ -1,0 +1,50 @@
+{
+    "name": "se468/LaravelPackageGeneratorsExtended",
+    "type": "library",
+    "description": "Create migrations, models, controllers for custom packages using artisan commands.",
+    "keywords": [
+        "se468",
+        "LaravelPackageGeneratorsExtended"
+    ],
+    "homepage": "https://github.com/se468/LaravelPackageGeneratorsExtended",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Seyong Cho",
+            "email": "seyong@seyongcho.com",
+            "homepage": "https://seyongcho.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.1",
+        "php" : "~5.6|~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=5.4.3",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "se468\\LaravelPackageGeneratorsExtended\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "se468\\LaravelPackageGeneratorsExtended\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
