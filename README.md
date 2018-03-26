@@ -4,7 +4,7 @@ Adds Artisan command generators for the package for Commands, Migrations, Contro
 ## Install
 Via Composer
 ``` bash
-$ composer require se468/LaravelPackageGeneratorsExtended
+$ composer require se468/laravel-package-generators-extended
 ```
 
 ## Usage
