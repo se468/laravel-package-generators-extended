@@ -11,7 +11,7 @@ $ composer require se468/laravel-package-generators-extended
 
 **Package**
 ```
-package:create {vendor} {package} {namespace} {name}
+package:create {vendor} {package} {namespace}
 ```
 
 Will create a service provider and `composer.json` in your package src directory. You must then add namespace in Laravel `composer.json` and service provider in `config/app.php`.
