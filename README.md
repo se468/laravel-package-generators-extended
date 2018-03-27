@@ -9,14 +9,14 @@ $ composer require se468/laravel-package-generators-extended
 
 ## Usage
 
-**Package**
+### Package
 ```
 package:create {vendor} {package} {namespace}
 ```
 
 Will create a service provider and `composer.json` in your package src directory. You must then add namespace in Laravel `composer.json` and service provider in `config/app.php`.
 
-**Command**
+### Command
 ```
 package:command {name_of_file} {vendor?} {package?} {namespace?} --path
 ```
@@ -26,7 +26,7 @@ Example:
 $ php artisan package:command TestCommand se468 test-package TestNamespace
 ```
 
-**Controller**
+### Controller
 ```
 package:controller {name_of_file} {vendor?} {package?} {namespace?}  --path
 ```
@@ -36,7 +36,7 @@ Example:
 $ php artisan package:controller TestController se468 test-package TestNamespace
 ```
 
-**Migration**
+### Migration
 ```
 package:migration {name_of_file} {vendor?} {package?} {namespace?} --path
 ```
@@ -46,7 +46,7 @@ Example:
 $ php artisan package:migration create_test_migration se468 test-package TestNamespace 
 ```
 
-**Model**
+### Model
 ```
 package:model {vendor} {package} {namespace} {name} --path
 ```
@@ -57,7 +57,7 @@ $ php artisan package:model TestModel se468 test-package TestNamespace
 ```
 
 
-**Optional Configuration**
+### Optional Configuration
 If you do not want to type vendor/package/namespace over and over for your generators, we offer a config file method. 
 
 Publish the config file. 
