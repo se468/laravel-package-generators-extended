@@ -44,12 +44,11 @@ class MakeTest extends PackageGeneratorCommand
         $package = $this->argument('package') ? $this->argument('package') : config('package-generators.package');
 
 
-        $testDir = base_path() . '/packages/'. $vendor .'/'. $package .'/tests';
         if (! is_null($targetPath = $this->input->getOption('path'))) {
-            return $testDir. '/'. $targetPath.'/' . $name . '.php';
+            return $this->getPackagePath(). '/'. $targetPath.'/' . $name . '.php';
         }
 
-        return $testDir. '/' . $name . '.php';
+        return $this->getPackagePath(). '/' . $name . '.php';
     }
 
     protected function compileStub()

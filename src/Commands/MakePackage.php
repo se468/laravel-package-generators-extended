@@ -36,10 +36,8 @@ class MakePackage extends PackageGeneratorCommand
 
     protected function getPath($name)
     {
-        return $this->getPackagePath() . '/' . $name . 'ServiceProvider.php';
+        return $this->getPackagePath() . '/src/' . $name . 'ServiceProvider.php';
     }
-
-    
 
     protected function compileStub()
     {

@@ -5,7 +5,6 @@ namespace se468\LaravelPackageGeneratorsExtended\Commands;
 use se468\LaravelPackageGeneratorsExtended\Commands\PackageGeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
 
-
 class MakeController extends PackageGeneratorCommand
 {
     protected $signature = 'package:controller {name : The name of the controller} {vendor?} {package?} {namespace?}
@@ -41,13 +40,14 @@ class MakeController extends PackageGeneratorCommand
     protected function getPath($name)
     {
         if (! is_null($targetPath = $this->input->getOption('path'))) {
-            return $this->getPackagePath().'/Http/Controller/'. $targetPath.'/' . $name . '.php';
+            return $this->getPackagePath().'/src/Http/Controller/'. $targetPath.'/' . $name . '.php';
         }
 
-        return $this->getPackagePath().'/Http/Controller/' . $name . '.php';
+        return $this->getPackagePath().'/src/Http/Controller/' . $name . '.php';
     }
 
-    protected function compileStub () {
+    protected function compileStub()
+    {
         $stub = $this->files->get(__DIR__ . '/../stubs/Controller.stub');
 
         $this->replaceNamespace($stub)
@@ -56,7 +56,8 @@ class MakeController extends PackageGeneratorCommand
         return $stub;
     }
 
-    protected function replaceClassName(&$stub) {
+    protected function replaceClassName(&$stub)
+    {
         $stub = str_replace('{{class}}', $this->argument('name'), $stub);
 
         return $this;

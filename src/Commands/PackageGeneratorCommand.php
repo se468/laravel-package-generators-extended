@@ -29,30 +29,32 @@ abstract class PackageGeneratorCommand extends Command
 
         $package = $this->argument('package') ? $this->argument('package') : config('package-generators.package');
 
-        return base_path() . '/packages/'. $vendor .'/'. $package .'/src';
+        return base_path() . '/packages/'. $vendor .'/'. $package;
     }
 
-    protected function makeDirectory ($path) {
+    protected function makeDirectory($path)
+    {
         if (!$this->files->isDirectory(dirname($path))) {
             $this->files->makeDirectory(dirname($path), 0777, true, true);
         }
     }
     
-    protected function beforeGeneration ($path) {
-        
-
+    protected function beforeGeneration($path)
+    {
         if ($this->files->exists($path)) {
             return $this->error('The file already exists!');
         }
     }
 
-    protected function afterGeneration ($path) {
+    protected function afterGeneration($path)
+    {
         $this->info('Created successfully.'. $path);
 
         $this->composer->dumpAutoloads();
     }
 
-    protected function replaceNamespace (&$stub) {
+    protected function replaceNamespace(&$stub)
+    {
         $vendor = $this->argument('vendor') ? $this->argument('vendor') : config('package-generators.vendor');
 
         $namespace = $this->argument('namespace') ? $this->argument('namespace') : config('package-generators.namespace');

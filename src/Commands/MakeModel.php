@@ -5,7 +5,6 @@ namespace se468\LaravelPackageGeneratorsExtended\Commands;
 use se468\LaravelPackageGeneratorsExtended\Commands\PackageGeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
 
-
 class MakeModel extends PackageGeneratorCommand
 {
     protected $signature = 'package:model {name : The name of the model} {vendor?} {package?} {namespace?} 
@@ -41,13 +40,14 @@ class MakeModel extends PackageGeneratorCommand
     protected function getPath($name)
     {
         if (! is_null($targetPath = $this->input->getOption('path'))) {
-            return $this->getPackagePath().'/Http/'. $targetPath.'/' . $name . '.php';
+            return $this->getPackagePath().'/src/Http/'. $targetPath.'/' . $name . '.php';
         }
 
-        return $this->getPackagePath().'/Http/' . $name . '.php';
+        return $this->getPackagePath().'/src/Http/' . $name . '.php';
     }
 
-    protected function compileStub () {
+    protected function compileStub()
+    {
         $stub = $this->files->get(__DIR__ . '/../stubs/Model.stub');
 
         $this->replaceNamespace($stub)
@@ -56,7 +56,8 @@ class MakeModel extends PackageGeneratorCommand
         return $stub;
     }
 
-    protected function replaceClassName(&$stub) {
+    protected function replaceClassName(&$stub)
+    {
         $stub = str_replace('{{class}}', $this->argument('name'), $stub);
 
         return $this;

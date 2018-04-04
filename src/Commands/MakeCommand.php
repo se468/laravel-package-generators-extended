@@ -5,7 +5,6 @@ namespace se468\LaravelPackageGeneratorsExtended\Commands;
 use se468\LaravelPackageGeneratorsExtended\Commands\PackageGeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
 
-
 class MakeCommand extends PackageGeneratorCommand
 {
     protected $signature = 'package:command {name : The name of the command} {vendor?} {package?} {namespace?}
@@ -41,13 +40,14 @@ class MakeCommand extends PackageGeneratorCommand
     protected function getPath($name)
     {
         if (! is_null($targetPath = $this->input->getOption('path'))) {
-            return $this->getPackagePath().'/Commands/'. $targetPath.'/' . $name . '.php';
+            return $this->getPackagePath().'/src/Commands/'. $targetPath.'/' . $name . '.php';
         }
 
-        return $this->getPackagePath().'/Commands/' . $name . '.php';
+        return $this->getPackagePath().'/src/Commands/' . $name . '.php';
     }
 
-    protected function compileStub () {
+    protected function compileStub()
+    {
         $stub = $this->files->get(__DIR__ . '/../stubs/Command.stub');
 
         $this->replaceNamespace($stub)
@@ -56,7 +56,8 @@ class MakeCommand extends PackageGeneratorCommand
         return $stub;
     }
 
-    protected function replaceClassName(&$stub) {
+    protected function replaceClassName(&$stub)
+    {
         $stub = str_replace('{{class}}', $this->argument('name'), $stub);
 
         return $this;
