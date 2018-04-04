@@ -12,6 +12,7 @@ class LaravelPackageGeneratorsExtendedServiceProvider extends ServiceProvider
         'se468\LaravelPackageGeneratorsExtended\Commands\MakeController',
         'se468\LaravelPackageGeneratorsExtended\Commands\MakeModel',
         'se468\LaravelPackageGeneratorsExtended\Commands\MakeMigration',
+        'se468\LaravelPackageGeneratorsExtended\Commands\MakeTest',
     ];
     /**
      * Perform post-registration booting of services.
