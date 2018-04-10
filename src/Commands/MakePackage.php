@@ -20,6 +20,7 @@ class MakePackage extends PackageGeneratorCommand
 
     public function handle()
     {
+        $this->addToLaravelConfig();
         $this->makeCommand();
     }
 
@@ -62,5 +63,56 @@ class MakePackage extends PackageGeneratorCommand
         $stub = str_replace('{{package}}', $this->argument('package'), $stub);
 
         return $this;
+    }
+
+    protected function addToLaravelComposer()
+    {
+        $composerJSON = json_decode($this->files->get(getcwd() . '/composer.json'), true);
+
+        if (!isset($composerJSON["autoload-dev"])) {
+            $composerJSON["autoload-dev"] = [];
+        }
+        
+        if (!isset($composerJSON["autoload-dev"]["psr-4"])) {
+            $composerJSON["autoload-dev"]["psr-4"] = [];
+        }
+
+        $key = sprintf("%s\\%s\\", $this->argument('vendor'), $this->argument('namespace'));
+        $value = sprintf("packages/%s/%s/src", $this->argument('vendor'), $this->argument('package'));
+
+        $composerJSON["autoload-dev"]["psr-4"][$key] = $value;
+
+        $this->files->put(getcwd() . '/composer.json', json_encode($composerJSON, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    }
+
+    protected function addToLaravelConfig()
+    {
+        // Add path to config/app.php.
+
+        // {vendor}\{namespace}\{namespace}ServiceProvider::class
+
+        $newLine = sprintf(
+            "\n\n        %s\%s\%sServiceProvider::class,",
+            $this->argument('vendor'),
+            $this->argument('namespace'),
+            $this->argument('namespace')
+        );
+        $configFile = $this->files->get(getcwd() . '/config/app.php');
+
+        $needle = "App\Providers\RouteServiceProvider::class,";
+        $positionToInsert = strpos($configFile, $needle) + strlen($needle);
+
+        $newConfigFile = substr_replace($configFile, $newLine, $positionToInsert, 0);
+
+        $this->files->put(getcwd() . '/config/app.php', $newConfigFile);
+    }
+
+    protected function afterGeneration($path)
+    {
+        $this->addToLaravelComposer();
+
+        
+
+        parent::afterGeneration($path);
     }
 }

@@ -14,7 +14,11 @@ $ composer require se468/laravel-package-generators-extended
 package:create {vendor} {package} {namespace}
 ```
 
-Will create a service provider and `composer.json` in your package src directory. You must then add namespace in Laravel `composer.json` and service provider in `config/app.php`.
+Will create a service provider and `composer.json` in your package src directory. 
+
+It will also add the psr4 namespaces in your laravel's `composer.json` file and register the service provider in `config/app.php` automatically.
+
+It's that simple!
 
 ### Command
 ```
