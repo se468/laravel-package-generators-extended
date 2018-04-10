@@ -32,7 +32,7 @@ package:command {name_of_file} {vendor?} {package?} {namespace?} --path
 
 Example:
 ```console
-$ php artisan package:command TestCommand se468 test-package TestNamespace
+php artisan package:command TestCommand se468 test-package TestNamespace
 ```
 
 ### Controller
@@ -42,7 +42,7 @@ package:controller {name_of_file} {vendor?} {package?} {namespace?}  --path
 
 Example:
 ```console
-$ php artisan package:controller TestController se468 test-package TestNamespace
+php artisan package:controller TestController se468 test-package TestNamespace
 ```
 
 ### Migration
@@ -52,7 +52,7 @@ package:migration {name_of_file} {vendor?} {package?} {namespace?} --path
 
 Example:
 ```console
-$ php artisan package:migration create_test_migration se468 test-package TestNamespace 
+php artisan package:migration create_test_migration se468 test-package TestNamespace 
 ```
 
 ### Model
@@ -62,7 +62,7 @@ package:model {vendor} {package} {namespace} {name} --path
 
 Example:
 ```console
-$ php artisan package:model TestModel se468 test-package TestNamespace 
+php artisan package:model TestModel se468 test-package TestNamespace 
 ```
 
 
