@@ -1,7 +1,5 @@
 [![Latest Stable Version](https://poser.pugx.org/se468/laravel-package-generators-extended/v/stable)](https://packagist.org/packages/se468/laravel-package-generators-extended)
-
 [![Total Downloads](https://poser.pugx.org/se468/laravel-package-generators-extended/downloads)](https://packagist.org/packages/se468/laravel-package-generators-extended)
-
 [![License](https://poser.pugx.org/se468/laravel-package-generators-extended/license)](https://packagist.org/packages/se468/laravel-package-generators-extended)
 
 
