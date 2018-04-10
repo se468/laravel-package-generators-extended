@@ -8,14 +8,14 @@ Adds Artisan command generators for the package for Commands, Migrations, Contro
 
 ## Install
 Via Composer
-``` bash
+```console
 $ composer require se468/laravel-package-generators-extended
 ```
 
 ## Usage
 
 ### Package
-```
+```console
 package:create {vendor} {package} {namespace}
 ```
 
@@ -26,22 +26,22 @@ It will also add the psr4 namespaces in your laravel's `composer.json` file and 
 It's that simple!
 
 ### Command
-```
+```console
 package:command {name_of_file} {vendor?} {package?} {namespace?} --path
 ```
 
 Example:
-```
+```console
 $ php artisan package:command TestCommand se468 test-package TestNamespace
 ```
 
 ### Controller
-```
+```console
 package:controller {name_of_file} {vendor?} {package?} {namespace?}  --path
 ```
 
 Example:
-```
+```console
 $ php artisan package:controller TestController se468 test-package TestNamespace
 ```
 
@@ -51,17 +51,17 @@ package:migration {name_of_file} {vendor?} {package?} {namespace?} --path
 ```
 
 Example:
-```
+```console
 $ php artisan package:migration create_test_migration se468 test-package TestNamespace 
 ```
 
 ### Model
-```
+```console
 package:model {vendor} {package} {namespace} {name} --path
 ```
 
 Example:
-```
+```console
 $ php artisan package:model TestModel se468 test-package TestNamespace 
 ```
 
@@ -70,7 +70,7 @@ $ php artisan package:model TestModel se468 test-package TestNamespace
 If you do not want to type vendor/package/namespace over and over for your generators, we offer a config file method. 
 
 Publish the config file. 
-```
+```console
 php artisan vendor:publish
 
 and select this package.
@@ -79,7 +79,7 @@ and select this package.
 It will generate `package-generators.php` in the `app/config` directory. You can modify `vendor`, `package`, `namespace` to set the default package. You may now call the commands without the vendor/package/namespaces, and just specify the name of the file you want to create.
 
 For example:
-```
+```console
 php artisan package:model TestModel
 ```
 
