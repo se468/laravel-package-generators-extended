@@ -1,9 +1,8 @@
+# Laravel Package Generators Extended
 [![Latest Stable Version](https://poser.pugx.org/se468/laravel-package-generators-extended/v/stable)](https://packagist.org/packages/se468/laravel-package-generators-extended)
 [![Total Downloads](https://poser.pugx.org/se468/laravel-package-generators-extended/downloads)](https://packagist.org/packages/se468/laravel-package-generators-extended)
 [![License](https://poser.pugx.org/se468/laravel-package-generators-extended/license)](https://packagist.org/packages/se468/laravel-package-generators-extended)
 
-
-# Laravel Package Generators Extended
 Adds Artisan command generators for the package for Commands, Migrations, Controllers, Models for rapid package development.
 
 ## Install
