@@ -5,6 +5,19 @@
 
 Adds Artisan command generators for the package for Commands, Migrations, Controllers, Models for rapid package development.
 
+This package comes with useful generators:
+```console
+php artisan package:create
+
+php artisan package:command
+
+php artisan package:controller
+
+php artisan package:migration
+
+php artisan package:model
+```
+
 ## Install
 Via Composer
 ```console
