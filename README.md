@@ -16,7 +16,7 @@ $ composer require se468/laravel-package-generators-extended
 
 ### Package
 ```console
-package:create {vendor} {package} {namespace}
+$ package:create {vendor} {package} {namespace}
 ```
 
 Will create a service provider and `composer.json` in your package src directory. 
@@ -46,9 +46,9 @@ $ package:command {name_of_file} {vendor?} {package?} {namespace?} --path
 Example:
 ```console
 $ php artisan package:command TestCommand se468 test-package TestNamespace
-
+```
 or using config file
-
+```console
 $ php artisan package:command TestCommand
 ```
 
@@ -60,9 +60,9 @@ $ package:controller {name_of_file} {vendor?} {package?} {namespace?}  --path
 Example:
 ```console
 $ php artisan package:controller TestController se468 test-package TestNamespace
-
+```
 or using config file
-
+```console
 $ php artisan package:controller TestController
 ```
 
@@ -75,9 +75,9 @@ $ package:migration {name_of_file} {vendor?} {package?} {namespace?} --path
 Example:
 ```console
 $ php artisan package:migration create_test_migration se468 test-package TestNamespace 
-
+```
 or using config file
-
+```console
 $ php artisan package:migration create_test_migration
 ```
 
@@ -90,9 +90,9 @@ $ package:model {vendor} {package} {namespace} {name} --path
 Example:
 ```console
 $ php artisan package:model TestModel se468 test-package TestNamespace 
-
+```
 or using config file
-
+```console
 $ php artisan package:model TestModel
 ```
 
