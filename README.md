@@ -24,21 +24,6 @@ Via Composer
 $ composer require se468/laravel-package-generators-extended
 ```
 
-## Usage
-
-
-### Package
-```console
-$ package:create {vendor} {package} {namespace}
-```
-
-Will create a service provider and `composer.json` in your package src directory. 
-
-It will also add the psr4 namespaces in your laravel's `composer.json` file and register the service provider in `config/app.php` automatically.
-
-It's that simple!
-
-
 ### Optional Configuration
 If you do not want to type vendor/package/namespace over and over for your generators, we offer a config file method. 
 
@@ -50,6 +35,18 @@ $ php artisan vendor:publish
 It will generate `package-generators.php` in the `app/config` directory. You can modify `vendor`, `package`, `namespace` to set the default package. You may now call the commands without specifying vendor/package/namespaces, and just specify the name of the file you want to create.
 
 
+## Usage
+
+### Package
+```console
+$ package:create {vendor} {package} {namespace}
+```
+
+Will create a service provider and `composer.json` in your package src directory. 
+
+It will also add the psr4 namespaces in your laravel's `composer.json` file and register the service provider in `config/app.php` automatically.
+
+It's that simple!
 
 ### Command
 ```console
@@ -79,7 +76,6 @@ or using config file
 $ php artisan package:controller TestController
 ```
 
-
 ### Migration
 ```
 $ package:migration {name_of_file} {vendor?} {package?} {namespace?} --path
@@ -93,7 +89,6 @@ or using config file
 ```console
 $ php artisan package:migration create_test_migration
 ```
-
 
 ### Model
 ```console
